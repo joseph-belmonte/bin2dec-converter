@@ -60,23 +60,25 @@ const Calculator = () => {
     return (
         <div>
             {/* Title */}
-            <h1> Binary to Decimal Calculator </h1>
-            <div id='inputs'>
-                <form>
-                    {/* Input Binary Number */}
-                    Binary Number:
-                    <input
-                        name="binary"
-                        type="text"
-                        placeholder='1010....'
-                        onChange={handleChange}
-                    />
-                </form>
-            </div>
-            <hr />
-            <div id='outputs'>
-                {/* Output Decimal number */}
-                Decimal Number: {msg}
+            <h1 className='card-title'> Binary to Decimal Calculator </h1>
+            <p className='card-text'> Please enter a binary number, with a maximum of 8 digits</p>
+            <div className='form-control'>
+                <div id='inputs' className='py-2'>
+                    <form>
+                        {/* Input Binary Number */}
+                        <p> Binary Number:</p>
+                        <input
+                            name="binary"
+                            type="text"
+                            placeholder="101010101010"
+                            onChange={handleChange}
+                        />
+                    </form>
+                </div>
+                <div id='outputs' className='py-2'>
+                    {/* Output Decimal number */}
+                    Decimal Number: {decimal}
+                </div>
             </div>
         </div >
     )
