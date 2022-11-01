@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 
 const Calculator = () => {
     const [input, setInput] = useState(0)
+    const [decimal, setDecimal] = useState()
 
     let msg = ''
     let output = ''
@@ -50,10 +51,12 @@ const Calculator = () => {
         const maxPower = realDigits.length;
         console.log("maxPower:  ", maxPower)
         let decimal = 0
-        for (let i = 0; i < maxPower - 1; i++) {
+        // start at zero, continue until the last element
+        for (let i = 0; i < realDigits.length; i++) {
             decimal = decimal + (realDigits[i] * 2 ** (maxPower - i));
-            console.log("Converted number:  ", decimal)
+            console.log(decimal)
         }
+        setDecimal(decimal)
         return decimal
     }
 
