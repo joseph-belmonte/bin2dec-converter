@@ -5,7 +5,6 @@ const Calculator = () => {
     const [decimal, setDecimal] = useState()
 
     let msg = ''
-    let output = ''
     useEffect(() => {
         //   update the decimal display
         let output = bin2dec(input)
@@ -47,9 +46,10 @@ const Calculator = () => {
         // map each digit into an array, realDigits
         const realDigits = digits.map(Number);
         console.log("DIGITS:  ", realDigits)
-        // largest power from the 
-        const maxPower = realDigits.length;
+        // largest power from the array
+        const maxPower = realDigits.length - 1;
         console.log("maxPower:  ", maxPower)
+        // initialize decimal variable
         let decimal = 0
         // start at zero, continue until the last element
         for (let i = 0; i < realDigits.length; i++) {
