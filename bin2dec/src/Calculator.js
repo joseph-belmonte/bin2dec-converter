@@ -30,10 +30,9 @@ const Calculator = () => {
         console.log("DIGITS:  ", realDigits)
         // largest power from the array
         const maxPower = realDigits.length - 1;
-        console.log("maxPower:  ", maxPower)
-        // initialize decimal variable
+        // initialize decimal variable outside the for loop
         let decimal = 0
-        // start at zero, continue until the last element
+        // start at zero, continue until the last element in the realDigits array
         for (let i = 0; i < realDigits.length; i++) {
             decimal = decimal + (realDigits[i] * 2 ** (maxPower - i));
             console.log(decimal)
