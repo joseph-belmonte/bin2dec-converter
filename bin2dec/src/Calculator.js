@@ -7,30 +7,12 @@ const Calculator = () => {
     let msg = ''
     useEffect(() => {
         //   update the decimal display
-        let output = bin2dec(input)
-        // console.log(decimal)
+        bin2dec(input)
     }, [input]);
 
 
     const handleChange = function (evt) {
         setInput(evt.target.value)
-        if (isBinary(input) === true) {
-            bin2dec(input)
-            // console.log(decimal)
-        }
-        else {
-            msg = "Not a binary number!"
-            return msg
-        }
-    }
-
-    // one function to check if a number is binary
-    const isBinary = function (num) {
-        if (/^[0-1]+$/.test(num) === true) {
-            return true
-        } else {
-            return false
-        }
     }
 
     //  Reference number conversion
