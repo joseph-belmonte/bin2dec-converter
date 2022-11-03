@@ -46,12 +46,13 @@ const Calculator = () => {
             {/* Title */}
             <h1 className='card-title'> Binary to Decimal Calculator </h1>
             <p className='card-text'> Please enter a binary number, with a maximum of 8 digits</p>
-            <div className='form-control'>
-                <div id='inputs' className='py-2'>
-                    <form>
+            <div className='form-control form-control-sm container-sm'>
+                <div id='inputs' >
+                    <form className='row justify-content-center'>
                         {/* Input Binary Number */}
-                        <p> Binary Number:</p>
+                        <p className='col-2 align-items-center my-auto'> Binary Number:</p>
                         <input
+                            className='col-2'
                             name="binary"
                             type="text"
                             placeholder="101010101010"
@@ -59,9 +60,12 @@ const Calculator = () => {
                         />
                     </form>
                 </div>
-                <div id='outputs' className='py-2'>
+                <div id='outputs' className='row justify-content-center'>
                     {/* Output Decimal number */}
-                    Decimal Number: {decimal}
+                    <p className='col-md-2 align-items-center my-auto'> Decimal Number: </p>
+                    <p className='col-md-2 align-items-center my-auto'> {decimal} </p>
+
+
                 </div>
             </div>
         </div >
