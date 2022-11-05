@@ -6,7 +6,6 @@ const Calculator = () => {
     const [error, setError] = useState('')
     const [isBinary, setIsBinary] = useState(true)
 
-    let msg = ''
     useEffect(() => {
         //   update the decimal display
         bin2dec(input)
