@@ -3,6 +3,8 @@ import React, { useState, useEffect } from 'react'
 const Calculator = () => {
     const [input, setInput] = useState(0)
     const [decimal, setDecimal] = useState()
+    const [error, setError] = useState('')
+    const [isBinary, setIsBinary] = useState(true)
 
     let msg = ''
     useEffect(() => {
@@ -34,42 +36,78 @@ const Calculator = () => {
         let decimal = 0
         // start at zero, continue until the last element in the realDigits array
         for (let i = 0; i < realDigits.length; i++) {
-            decimal = decimal + (realDigits[i] * 2 ** (maxPower - i));
-            console.log(decimal)
+            if (realDigits[i] != 0 && realDigits[i] != 1) {
+                setIsBinary(false)
+                setError('Not a binary number!')
+                break;
+            } else {
+                setIsBinary(true)
+                decimal = decimal + (realDigits[i] * 2 ** (maxPower - i));
+                console.log(decimal)
+            }
         }
         setDecimal(decimal)
         return decimal
     }
 
-    return (
-        <div>
-            {/* Title */}
-            <h1 className='card-title'> Binary to Decimal Calculator </h1>
-            <p className='card-text'> Please enter a binary number, with a maximum of 8 digits</p>
-            <div className='form-control form-control-sm container-sm'>
-                <div id='inputs' >
-                    <form className='row justify-content-center'>
-                        {/* Input Binary Number */}
-                        <p className='col-2 align-items-center my-auto'> Binary Number:</p>
-                        <input
-                            className='col-2'
-                            name="binary"
-                            type="text"
-                            placeholder="101010101010"
-                            onChange={handleChange}
-                        />
-                    </form>
+    if (isBinary == true) {
+        return (
+            <div>
+                {/* Title */}
+                <h1 className='card-title'> Binary to Decimal Calculator </h1>
+                <p className='card-text'> Please enter a binary number</p>
+                <div className='form-control form-control-sm container-sm'>
+                    <div id='inputs' >
+                        <form className='row justify-content-center'>
+                            {/* Input Binary Number */}
+                            <p className='col-2 align-items-center my-auto'> Binary Number:</p>
+                            <input
+                                className='col-2'
+                                name="binary"
+                                type="text"
+                                placeholder="101010101010"
+                                onChange={handleChange}
+                            />
+                        </form>
+                    </div>
+                    <div id='outputs' className='row justify-content-center'>
+                        {/* Output Decimal number */}
+                        <p className='col-md-2 align-items-center my-auto'> Decimal Number: </p>
+                        <p className='col-md-2 align-items-center my-auto'> {decimal} </p>
+                    </div>
                 </div>
-                <div id='outputs' className='row justify-content-center'>
-                    {/* Output Decimal number */}
-                    <p className='col-md-2 align-items-center my-auto'> Decimal Number: </p>
-                    <p className='col-md-2 align-items-center my-auto'> {decimal} </p>
-
-
+            </div >
+        )
+    }
+    else {
+        return (
+            <div>
+                {/* Title */}
+                <h1 className='card-title'> Binary to Decimal Calculator </h1>
+                <p className='card-text'> Please enter a binary number</p>
+                <div className='form-control form-control-sm container-sm'>
+                    <div id='inputs' >
+                        <form className='row justify-content-center'>
+                            {/* Input Binary Number */}
+                            <p className='col-2 align-items-center my-auto'> Binary Number:</p>
+                            <input
+                                className='col-2'
+                                name="binary"
+                                type="text"
+                                placeholder="101010101010"
+                                onChange={handleChange}
+                            />
+                        </form>
+                    </div>
+                    <div id='outputs' className='row justify-content-center'>
+                        {/* Output Decimal number */}
+                        <p className='col-md-2 align-items-center my-auto'> Decimal Number: </p>
+                        <p className='col-md-2 align-items-center my-auto'> {error} </p>
+                    </div>
                 </div>
-            </div>
-        </div >
-    )
-
+            </div >
+        )
+    }
 }
+
 export default Calculator
