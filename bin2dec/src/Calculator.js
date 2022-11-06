@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import './Calculator.css'
 
 const Calculator = () => {
     const [input, setInput] = useState(0)
@@ -28,33 +29,31 @@ const Calculator = () => {
         const digits = bin.toString().split('');
         // map each digit into an array, realDigits
         const realDigits = digits.map(Number);
-        console.log("DIGITS:  ", realDigits)
         // largest power from the array
         const maxPower = realDigits.length - 1;
         // initialize decimal variable outside the for loop
         let decimal = 0
         // start at zero, continue until the last element in the realDigits array
         for (let i = 0; i < realDigits.length; i++) {
-            if (realDigits[i] != 0 && realDigits[i] != 1) {
+            if (realDigits[i] !== 0 && realDigits[i] !== 1) {
                 setIsBinary(false)
                 setError('Not a binary number!')
                 break;
             } else {
                 setIsBinary(true)
                 decimal = decimal + (realDigits[i] * 2 ** (maxPower - i));
-                console.log(decimal)
             }
         }
         setDecimal(decimal)
         return decimal
     }
 
-    if (isBinary == true) {
+    if (isBinary === true) {
         return (
-            <div>
+            <div className='my-auto'>
                 {/* Title */}
-                <h1 className='card-title'> Binary to Decimal Calculator </h1>
-                <p className='card-text'> Please enter a binary number</p>
+                <p className='col-md-6 mx-auto my-auto py-1'> Binary to Decimal Calculator </p>
+                <p className='card-text col-md-6 mx-auto my-auto py-1'> Please enter a binary number</p>
                 <div className='form-control form-control-sm container-sm'>
                     <div id='inputs' >
                         <form className='row justify-content-center'>
@@ -82,8 +81,8 @@ const Calculator = () => {
         return (
             <div>
                 {/* Title */}
-                <h1 className='card-title'> Binary to Decimal Calculator </h1>
-                <p className='card-text'> Please enter a binary number</p>
+                <p className='col-md-6 mx-auto my-auto py-1'> Binary to Decimal Calculator </p>
+                <p className='card-text col-md-6 mx-auto my-auto py-1'> Please enter a binary number</p>
                 <div className='form-control form-control-sm container-sm'>
                     <div id='inputs' >
                         <form className='row justify-content-center'>
@@ -98,7 +97,7 @@ const Calculator = () => {
                             />
                         </form>
                     </div>
-                    <div id='outputs' className='row justify-content-center'>
+                    <div id='error' className='row justify-content-center'>
                         {/* Output Decimal number */}
                         <p className='col-md-2 align-items-center my-auto'> Decimal Number: </p>
                         <p className='col-md-2 align-items-center my-auto'> {error} </p>
