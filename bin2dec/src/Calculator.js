@@ -50,28 +50,31 @@ const Calculator = () => {
 
     if (isBinary === true) {
         return (
-            <div className='my-auto'>
+            <div id='container' className='my-auto col-lg-12'>
                 {/* Title */}
-                <p className='col-md-6 mx-auto my-auto py-1'> Binary to Decimal Calculator </p>
-                <p className='card-text col-md-6 mx-auto my-auto py-1'> Please enter a binary number</p>
-                <div className='form-control form-control-sm container-sm'>
+                <p className='fs-5 text-wrap col-lg-12 mx-auto my-auto py-1'> Binary to Decimal Calculator </p>
+                <hr id='title-hr' />
+                <p className='fs-6 col-lg-12 mx-auto my-auto py-1'> Please enter a binary number</p>
+                <div className='form-control form-control-sm container-sm no-border'>
                     <div id='inputs' >
                         <form className='row justify-content-center'>
                             {/* Input Binary Number */}
-                            <p className='col-2 align-items-center my-auto'> Binary Number:</p>
+                            <p className='col-lg-4 align-items-center my-auto'> Binary Number:</p>
                             <input
-                                className='col-2'
+                                className='col-lg-4'
                                 name="binary"
                                 type="text"
-                                placeholder="101010101010"
+                                placeholder="10101"
+                                autoComplete='off'
                                 onChange={handleChange}
                             />
                         </form>
                     </div>
+                    <hr id='minor-hr' />
                     <div id='outputs' className='row justify-content-center'>
                         {/* Output Decimal number */}
-                        <p className='col-md-2 align-items-center my-auto'> Decimal Number: </p>
-                        <p className='col-md-2 align-items-center my-auto'> {decimal} </p>
+                        <p className='col-lg-4 align-items-center my-auto'> Decimal Number: </p>
+                        <p className='col-lg-4 align-items-center my-auto'> {decimal} </p>
                     </div>
                 </div>
             </div >
@@ -79,28 +82,31 @@ const Calculator = () => {
     }
     else {
         return (
-            <div>
+            <div id='container' className='my-auto col-lg-12'>
                 {/* Title */}
-                <p className='col-md-6 mx-auto my-auto py-1'> Binary to Decimal Calculator </p>
-                <p className='card-text col-md-6 mx-auto my-auto py-1'> Please enter a binary number</p>
-                <div className='form-control form-control-sm container-sm'>
+                <p className='fs-5 text-wrap col-lg-12 mx-auto my-auto py-1'> Binary to Decimal Calculator </p>
+                <hr id='title-hr' />
+                <p className='fs-6 col-lg-12 mx-auto my-auto py-1'> Please enter a binary number</p>
+                <div className='form-control form-control-sm container-sm no-border'>
                     <div id='inputs' >
                         <form className='row justify-content-center'>
                             {/* Input Binary Number */}
-                            <p className='col-2 align-items-center my-auto'> Binary Number:</p>
+                            <p className='col-lg-4 align-items-center my-auto'> Binary Number:</p>
                             <input
-                                className='col-2'
+                                className='col-lg-4'
                                 name="binary"
                                 type="text"
-                                placeholder="101010101010"
+                                placeholder="10101"
+                                autoComplete='off'
                                 onChange={handleChange}
                             />
                         </form>
                     </div>
+                    <hr id='minor-hr' />
                     <div id='error' className='row justify-content-center'>
                         {/* Output Decimal number */}
-                        <p className='col-md-2 align-items-center my-auto'> Decimal Number: </p>
-                        <p className='col-md-2 align-items-center my-auto'> {error} </p>
+                        <p className='col-lg-4 align-items-center my-auto'> Decimal Number: </p>
+                        <p className='col-lg-4 align-items-center my-auto'> {error} </p>
                     </div>
                 </div>
             </div >
